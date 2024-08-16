@@ -1,16 +1,11 @@
 import { StatusCodes } from 'http-status-codes'
+import ApiError from '~/utils/ApiError'
 
 const createNew = async (req, res, next) => {
   try {
-    console.log('req.body:', req.body)
-
-    res.status(StatusCodes.CREATED).json({ message: 'POST from Controller: API create list boards', code: StatusCodes.CREATED })
-  } catch (error) {
-    console.log(error)
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-      errors: error.message
-    })
-  }
+    throw new ApiError(StatusCodes.BAD_REQUEST, 'Huy Hoàng test error')
+    // res.status(StatusCodes.CREATED).json({ message: 'POST from Controller: API create list boards', code: StatusCodes.CREATED })
+  } catch (error) { next(error) }
 }
 
 
