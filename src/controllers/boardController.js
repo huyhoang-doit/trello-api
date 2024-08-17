@@ -5,6 +5,7 @@ const createNew = async (req, res, next) => {
   try {
 
     // Điều hướng dữ liệu sang tầng Service
+    // console.log(req.body)
     const createBoard = await boardService.createNew(req.body)
 
     // Kết quả trả về phía Client
