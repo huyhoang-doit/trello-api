@@ -2,7 +2,6 @@ import { cardModel } from '~/models/cardModel'
 import { columnModel } from '~/models/columnModel'
 
 
-
 const createNew = async (reqBody) => {
   try {
     const newCard = {
