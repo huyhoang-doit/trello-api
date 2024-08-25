@@ -2,7 +2,7 @@
 export const WHITELIST_DOMAINS = [
   // Không cần localhost FE nữa vì môi trường dev luôn được truy cập
   // domain deploy Vercel
-  'https://trello-web-one-eta.vercel.app/'
+  'https://trello-web-one-eta.vercel.app'
 ]
 
 export const BOARD_TYPES = {
