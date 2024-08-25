@@ -23,10 +23,20 @@ const START_SERVER = () => {
   //  Middleware error handler
   app.use(errorHandlingMiddleware)
 
-  app.listen(env.APP_PORT, env.APP_HOST, () => {
-    // eslint-disable-next-line no-console
-    console.log(`Hello ${env.AUTHOR}, I am running at ${env.APP_HOST}:${env.APP_PORT}/`)
-  })
+  // Môi trường Production đang support cho Render.com
+  if (env.BUILD_MODE === 'prod') {
+    app.listen(process.env.PORT, () => {
+      // eslint-disable-next-line no-console
+      console.log(`Production: Hello ${env.AUTHOR}, I am running at ${process.env.PORT}`)
+    })
+  } else {
+    app.listen(env.LOCAL_DEV_APP_PORT, env.LOCAL_DEV_APP_HOST, () => {
+      // eslint-disable-next-line no-console
+      console.log(`Local dev: Hello ${env.AUTHOR}, I am running at ${env.LOCAL_DEV_APP_HOST}:${env.LOCAL_DEV_APP_PORT}/`)
+    })
+  }
+
+
 
 
   // Thực hiện các tác vụ cleanup trước khi dừng server
